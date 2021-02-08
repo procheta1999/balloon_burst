@@ -5,19 +5,20 @@ function myFunction() {
   location.reload();
 }
 gameScene.preload=function(){
-    this.load.image('background', 'assets/sky.jpg');
-    this.load.image('ball', 'assets/ball.png');
-    this.load.image('balloon', 'assets/ball.png');
-    this.load.image('blue', 'assets/blue.png');
-    this.load.image('green', 'assets/green.png');
-    this.load.image('yellow', 'assets/yellow.png');
-    this.load.image('arrow','assets/arrow_new.png');
+//    this.load.image('background', 'assets/sky.jpg');
+    this.load.image('ball', 'assets/balloon-mod-1.png');
+    this.load.image('balloon', 'assets/balloon-mod-1.png');
+    this.load.image('blue', 'assets/balloon-mod-2.png');
+    this.load.image('green', 'assets/balloon-mod-3.png');
+    this.load.image('yellow', 'assets/balloon-mod-4.png');
+    this.load.image('arrow','assets/dart.png');
     this.load.audio('sfx', 'assets/shotgun.wav');
 };   
 gameScene.create=function(){
-    this.background=this.add.image(120,120,'background');
+//    this.background=this.add.image(120,120,'background');
+//    this.game.stage.backgroundColor = "#4488AA";
     this.sound.add('sfx');
-    this.background.setScale(10,10);
+//    this.background.setScale(10,10);
     this.text = this.add.text(300,700, "Your Score:", {
             font: "bold 30px Arial",
             align: "center",
@@ -33,14 +34,14 @@ gameScene.create=function(){
     this.balloon6=this.add.sprite(130,400,'yellow');
     
     // this.ball=this.add.sprite(150,180,'ball',{align:"center"});
-     this.ball.setScale(0.5,0.5);
-    this.balloon.setScale(0.5,0.5);
-     this.balloon1.setScale(0.5,0.5);
-     this.balloon2.setScale(0.5,0.5);
-    this.balloon3.setScale(0.5,0.5);
-    this.balloon4.setScale(0.5,0.5);
-    this.balloon5.setScale(0.5,0.5);
-    this.balloon6.setScale(0.5,0.5);
+     this.ball.setScale(0.3,0.7);
+    this.balloon.setScale(0.2,0.5);
+     this.balloon1.setScale(0.2,0.4);
+     this.balloon2.setScale(0.2,0.3);
+    this.balloon3.setScale(0.2,0.5);
+    this.balloon4.setScale(0.2,0.3);
+    this.balloon5.setScale(0.3,0.6);
+    this.balloon6.setScale(0.1,0.3);
     this.physics.add.existing(this.ball);
     this.physics.add.existing(this.balloon);
     this.physics.add.existing(this.balloon1);
@@ -50,7 +51,8 @@ gameScene.create=function(){
     this.physics.add.existing(this.balloon5);
     this.physics.add.existing(this.balloon6);
     this.arrow=this.add.sprite(130,800,'arrow');
-    this.arrow.angle=45;
+    this.arrow.angle=130;
+    this.arrow.setScale(0.5,0.5);
     this.physics.add.existing(this.arrow);
     
     this.move=true;
@@ -190,6 +192,7 @@ gameScene.create=function(){
             type:Phaser.AUTO,
             width:700,
             height:950,
+            backgroundColor: '#4488AA',
             scene: gameScene,
             physics:{
                 default: 'arcade',
